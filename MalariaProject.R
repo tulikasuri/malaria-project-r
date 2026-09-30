@@ -24,7 +24,7 @@ head(malaria_clean)
 
 #Visualise the data
 options(scipen = 999)
-malaria_clean %>%
+p <- malaria_clean %>%
   group_by(Country) %>%
   summarise(Avg_Cases = mean(Value, na.rm = TRUE)) %>%
   arrange(desc(Avg_Cases)) %>%
@@ -35,7 +35,8 @@ malaria_clean %>%
     x = "Average Malaria Cases",               
     title = "Average Malaria Cases by Country" 
   )
-
+p                                                        # shows the chart in RStudio
+ggsave("malaria_plot.png", p, width = 8, height = 14)    # saves it to the repo folder
 #3.Analyse the data to find out if the differences in average cases between countries is statistically significant or just random variation
 #3. a) Find out if it's normally distributed, H0: The data is normally distributed, H1: The data is not normally distributed
 shapiro.test(malaria_clean$Value)
