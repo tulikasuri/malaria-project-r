@@ -8,7 +8,7 @@ Are differences in average malaria cases between countries statistically
 significant, or just random variation?
 
 ## Data
-WHO malaria dataset (`who_malaria_data.csv`): 822 records covering _ countries,
+WHO malaria dataset (`who_malaria_data.csv`): 822 records covering 92 countries,
 (2015-2024). Key fields: region, country, year, reported value, and confidence
 interval bounds.
 
@@ -20,11 +20,7 @@ interval bounds.
    to control for multiple comparisons.
 
 ## Findings
-- [Result of Kruskal-Wallis, e.g. p-value and what it means]
-- [Which countries had the highest/lowest average cases]
-- [Number or example of significantly different country pairs]
 
-![Average malaria cases by country](malaria_plot.png)
 
 ## How to run
 Requires R and the `tidyverse` package. Open `MalariaProject.R` and run it from
