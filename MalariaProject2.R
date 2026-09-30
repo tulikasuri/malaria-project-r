@@ -1,4 +1,5 @@
 library(tidyverse)
+malaria_data <- read_csv("9cec8cb9-80a4-4138-9a29-c00b0351bed6.csv")
 #1. Clean and subset the WHO dataset
 
 
