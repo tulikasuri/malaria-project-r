@@ -20,11 +20,13 @@ interval bounds.
    to control for multiple comparisons.
 
 ## Findings
-
+Used the Shapiro Test to determine if the data is normally distributed, found the p-value to be less than 0.05 so reject H0 (The data is normally distributed), so the data is not normally distributed, it's skewed. 
+Since the data is skewed, we then used the Kruskal test - we found the p-value to be less than 0.05, we reject H0, so at least one country has a significantly different distribution of malaria cases.
+We then used the pairwise Wilcox test to summarise the significant pairs.
 
 ## How to run
 Requires R and the `tidyverse` package. Open `MalariaProject.R` and run it from
 the top; the dataset is loaded from the CSV in this folder.
 
 ## Limitations
-[One or two honest caveats, e.g. reporting differences between countries, data gaps.]
+
