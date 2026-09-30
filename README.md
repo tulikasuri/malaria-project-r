@@ -8,9 +8,8 @@ Are differences in average malaria cases between countries statistically
 significant, or just random variation?
 
 ## Data
-WHO malaria dataset (`who_malaria_data.csv`): 821 records covering 92 countries,
-(2015-2024). Key fields: region, country, year, reported value, and confidence
-interval bounds.
+WHO malaria dataset (`who_malaria_data.csv`): 821 records covering 92 countries
+(2015-2024). There are 6 WHO regions, the indicator is RDT-positive case counts, and  the data came from WHO Global Health Observatory. Key fields: region, country, year, reported value, and confidence interval bounds.
 
 ## Method
 1. **Cleaning (tidyverse):** selected and renamed key columns, removed missing values.
@@ -20,13 +19,15 @@ interval bounds.
    to control for multiple comparisons.
 
 ## Findings
-Used the Shapiro Test to determine if the data is normally distributed, found the p-value to be less than 0.05 so reject H0 (The data is normally distributed), so the data is not normally distributed, it's skewed. 
-Since the data is skewed, we then used the Kruskal test - we found the p-value to be less than 0.05, we reject H0, so at least one country has a significantly different distribution of malaria cases.
-We then used the pairwise Wilcox test to summarise the significant pairs.
-
+- A Shapiro-Wilk test rejected normality (p < 0.05), so the data is skewed and
+  non-parametric tests were used.
+- A Kruskal-Wallis test rejected the null hypothesis (p < 0.05): at least one
+  country has a significantly different distribution of malaria cases.
+- Pairwise Wilcoxon tests with Holm correction were used to identify which
+  country pairs differ; the significant pairs are listed by the final step of
+  the script.
+ p <- ![Average malaria cases by country](malaria_plot.png) ggsave("malaria_plot.png", p, width = 8, height = 14)
 ## How to run
-Requires R and the `tidyverse` package. Open `MalariaProject.R` and run it from
-the top; the dataset is loaded from the CSV in this folder.
-
+Requires R and the `tidyverse` package. Download the repo, open MalariaProject.R in RStudio, and set the working directory to the source file's location (Session → Set Working Directory → To Source File Location).
 ## Limitations
 Values are raw RDT-positive case counts, not population-adjusted rates, so results reflect country size as well as malaria burden. Countries contribute between 1 and 10 yearly records, and reporting may not be random. Repeated yearly observations for a country are treated as independent, and WHO confidence intervals were not used. Results show that countries differ, not why, and should be read as exploratory.
