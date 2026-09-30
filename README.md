@@ -29,4 +29,4 @@ Requires R and the `tidyverse` package. Open `MalariaProject.R` and run it from
 the top; the dataset is loaded from the CSV in this folder.
 
 ## Limitations
-
+Values are raw RDT-positive case counts, not population-adjusted rates, so results reflect country size as well as malaria burden. Countries contribute between 1 and 10 yearly records, and reporting may not be random. Repeated yearly observations for a country are treated as independent, and WHO confidence intervals were not used. Results show that countries differ, not why, and should be read as exploratory.
