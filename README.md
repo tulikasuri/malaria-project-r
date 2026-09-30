@@ -8,7 +8,7 @@ Are differences in average malaria cases between countries statistically
 significant, or just random variation?
 
 ## Data
-WHO malaria dataset (`who_malaria_data.csv`): 821 records covering 92 countries
+WHO malaria dataset ('WHO Malaria Data'): 821 records covering 92 countries
 (2015-2024). There are 6 WHO regions, the indicator is RDT-positive case counts, and  the data came from WHO Global Health Observatory. Key fields: region, country, year, reported value, and confidence interval bounds.
 
 ## Method
@@ -26,7 +26,7 @@ WHO malaria dataset (`who_malaria_data.csv`): 821 records covering 92 countries
 - Pairwise Wilcoxon tests with Holm correction were used to identify which
   country pairs differ; the significant pairs are listed by the final step of
   the script.
- p <- ![Average malaria cases by country](malaria_plot.png) ggsave("malaria_plot.png", p, width = 8, height = 14)
+![Average malaria cases by country](malaria_plot.png)
 ## How to run
 Requires R and the `tidyverse` package. Download the repo, open MalariaProject.R in RStudio, and set the working directory to the source file's location (Session → Set Working Directory → To Source File Location).
 ## Limitations
